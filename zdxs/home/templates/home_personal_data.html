@@ -1,0 +1,126 @@
+{% extends "home_base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+
+
+  <div style="padding-top:50px;padding-bottom:50px;background-color:#EEE">
+    <div class="container" style="margin:10px auto;border-radius:5px;background:white;padding:20px 20px;">
+      <div class="row">
+      <div class=" col-md-12">
+
+      <div class="col-md-12">
+        <div class="col-md-3">
+        <p class="text-right lead ">个人头像:</p>
+        
+        </div>
+        <div class="col-md-9"></div>
+        <hr>
+        <div class="col-md-12">
+        <img src="{{ MEDIA_URL }}{{ userprofile.avatar }}" class="text-left" style="padding-bottom:40px;">
+        <hr>
+        </div>
+
+        </div>
+        <br>
+        <br>
+        <hr>
+        <div class="col-md-12">
+        <div class="col-md-3">
+          <p class="text-right lead">姓名:</p>
+        </div>
+        <div class="col-md-9">
+          <p class="text-left lead">{{ userprofile.name }}</p>
+        </div>
+        </div>
+        <div class="col-md-12">
+        <hr>
+        <div class="col-md-3">
+          <p class="text-right lead">班级:</p>
+        </div>
+        <div class="col-md-8">
+          <p class="text-left lead">{{ userprofile.classname }}</p>
+        </div>
+        </div>
+        <div class="col-md-12">
+        <hr>
+        <div class="col-md-3">
+          <p class="text-right lead">专业:</p>
+        </div>
+        <div class="col-md-9">
+          <p class="text-left lead">{{ userprofile.subject }}</p>
+        </div>
+        </div>
+        <div class="col-md-12">
+        <hr>
+        <div class="col-md-3">
+          <p class="text-right lead">民族:</p>
+        </div>
+        <div class="col-md-9">
+          <p class="text-left lead">{{ userprofile.race }}</p>
+        </div>
+        </div>
+        <div class="col-md-12">
+        <hr>
+        <div class="col-md-3">
+          <p class="text-right lead">性别:</p>
+        </div>
+        <div class="col-md-9">
+          <p class="text-left lead">{{ userprofile.get_sex_display }}</p>
+        </div>
+        </div>
+        <div class="col-md-12">
+        <hr>
+        <div class="col-md-3">
+          <p class="text-right lead">生日:</p>
+        </div>
+        <div class="col-md-9">
+          <p class="text-left lead">{{ userprofile.birthday }}</p>
+        </div>
+        </div>
+        <div class="col-md-12">
+        <hr>
+        <div class="col-md-3">
+          <p class="text-right lead">希望加入的组:</p>
+        </div>
+        <div class="col-md-9">
+          <p class="text-left lead">{{ userprofile.team }}</p>
+        </div>
+        </div>
+        <div class="col-md-12">
+        <hr>
+        <div class="col-md-3">
+          <p class="text-right lead">联系方式:</p>
+        </div>
+        <div class="col-md-7">
+          <p class="text-left lead">{{ userprofile.contact }}</p>
+        </div>
+        </div>
+        <div class="col-md-12">
+        <hr>
+        <div class="col-md-3">
+          <p class="text-right lead">对扎堆的想法:</p>
+        </div>
+        <div class="col-md-7">
+          <p class="text-left lead">{{ userprofile.something }}</p>
+        </div>
+        </div>
+        <div class="col-md-12">
+        <hr>
+        <div class="col-md-3">
+          <p class="text-right lead">自我介绍:</p>
+        </div>
+        <div class="col-md-7">
+          <p class="text-left lead">{{ userprofile.introduction }}</p>
+        </div>
+        </div>
+        
+        <div class="col-md-12" style="height:50px;"></div>
+        <a href="/joinshow" class="button btn-block button-rounded button-primary button-large "><span class="glyphicon glyphicon-share" aria-hidden="true"></span>返回报名人员列表</a>
+
+      </div>
+      </div>
+      </div>
+      </div>
+
+{% endblock %}

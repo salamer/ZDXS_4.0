@@ -1,0 +1,72 @@
+{% extends "home_base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+    <div class="site-wrapper area">
+
+      <div class="site-wrapper-inner area"  style="background-image:url({% static 'pic/login_back.jpg' %})">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-5" style="color:black;height:250px;padding-top:50px;margin-bottom:80px;">
+            <h1 style="padding-top:120px;"><strong>加入我们吧，成为扎堆的一分子</strong></h1>
+            <h3><a href="" style="color:black">了解更多</a></h3>
+          </div>
+          <div class="col-md-5" style="background-color:rgba(246, 229, 229, 0.75);color:black;">
+          <div style="padding:50px 0px;">
+            <h3><strong>注册</strong></h3>
+            <hr class="bar">
+            <p>注册一个帐号在 <strong>zhadui</strong>的主页</p>
+            
+            <form class="form-horizontal" method="post" action="">
+            {% csrf_token %}
+              <div class="form-group" style="background-color:rgba(0,0,0,0)">
+               {% for error in form.name.errors %}
+                 <p style="color:red">{{ error }}</p>
+              {% endfor %}
+             
+               <div class="col-md-12">
+                  {{ form.name }}
+                </div>
+              </div>
+              <div class="form-group" style="background-color:rgba(0,0,0,0)">
+                {% for error in form.email.errors %}
+                 <p style="color:red">{{ error }}</p>
+              {% endfor %}
+            
+                <div class="col-md-12">
+                  {{ form.email }}
+                </div>
+              </div>
+              <div class="form-group" style="background-color:rgba(0,0,0,0)">
+               {% for error in form.password1.errors %}
+                 <p style="color:red">{{ error }}</p>
+              {% endfor %}
+               <div class="col-md-12">
+                  {{ form.password1 }}
+                </div>
+              </div>
+              <div class="form-group" style="background-color:rgba(0,0,0,0)">
+               {% for error in form.password2.errors %}
+                 <p style="color:red">{{ error }}</p>
+              {% endfor %}
+               <div class="col-md-12">
+                  {{ form.password2 }}
+                </div>
+              </div>
+              <br>
+
+              <input type="submit" class="button button-block button-caution btn-block" value="注册">
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+
+          
+
+
+    
+{% endblock %}

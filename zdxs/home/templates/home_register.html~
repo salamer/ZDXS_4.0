@@ -1,0 +1,48 @@
+{% extends "homebase.html" %}
+{% block content %}
+{{ form.non_field_errors }}
+<div class="jumbotron" style="background-color:#428bca; color:#FFFFFF;margin-bottom:0px;">
+      <div class="container">
+        <h1 align="left">register in zhadui !to become a better man!</h1>
+      </div>
+    </div>
+<div class="row" style="background:none repeat scroll 0% 0% #2B5F74;height:500px;">
+<div class="container" >
+<br>
+<br>
+<br>
+<form class="form-horizontal" method="post" action="">
+	{% csrf_token %}
+	<p class="bg-danger">{{ form.name.errors }}</p>
+	<div class="form-group">
+		<label for="{{ form.name.id_for_label }}" class="col-md-2 control-label" style="color:white">your name:</label>
+		<div class="col-md-6">
+			{{ form.name }}
+		</div>
+	</div>
+	<p class="bg-danger">{{ form.email.errors }}</p>
+	<div class="form-group">
+		<label for="{{ form.email.id_for_label }}" class="col-md-2 control-label" style="color:white">email:</label>
+		<div class="col-md-6">
+			{{ form.email }}
+		</div>
+	</div>
+	<p class="bg-danger">{{ form.password1.errors }}</p>
+	<div class="form-group">
+		<label for="{{ form.password1.id_for_label }}" class="col-md-2 control-label" style="color:white">password:</label>
+		<div class="col-md-6">
+			{{ form.password1 }}
+		</div>
+	</div>
+	<p class="bg-danger">{{ form.password2.errors }}</p>
+	<div class="form-group">
+		<label for="{{ form.password2.id_for_label }}" class="col-md-2 control-label" style="color:white">password check:</label>
+		<div class="col-md-6">
+			{{ form.password2 }}
+		</div>
+	</div>
+	<input type="submit" value="register" class="col-md-offset-2 button button-glow button-rounded button-royal"/>
+</form>
+</div>
+</div>
+{% endblock %}

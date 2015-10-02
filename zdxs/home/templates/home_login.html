@@ -1,0 +1,59 @@
+{% extends "home_base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+    <div class="site-wrapper area">
+
+      <div class="site-wrapper-inner area"  style="background-image:url({% static 'pic/login_back.jpg' %})">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-5" style="color:black;height:250px;padding-top:50px;margin-bottom:80px;">
+            <h1 style="margin-top:100px;"><strong>但行好事，去他妈的前程。</strong></h1>
+            <h3><a href="" style="color:black">了解更多</a></h3>
+          </div>
+          <div class="col-md-5" style="background-color:rgba(246, 229, 229, 0.75);color:black;">
+          <div style="padding:50px 0px">
+            <h3><strong>登录</strong></h3>
+            <hr class="bar">
+            <p>现在登录<strong>zhadui</strong></p>
+            <form class="form-horizontal" method="post" action="">
+            {% csrf_token %}
+              {% if errors %}
+              {% for error in errors %}
+                <p style="color:red">{{ error }}</p>
+              {% endfor %}
+              {% endif %}
+              <div class="form-group" style="background-color:rgba(0,0,0,0)">
+                {% for error in form.email.errors %}
+                 <p style="color:red">{{ error }}</p>
+              {% endfor %}
+                <div class="col-md-12">
+                  {{ form.email }}
+                </div>
+              </div>
+              <div class="form-group" style="background-color:rgba(0,0,0,0)">
+               {% for error in form.password.errors %}
+                 <p style="color:red">{{ error }}</p>
+              {% endfor %}
+               <div class="col-md-12">
+                  {{ form.password }}
+                </div>
+              </div>
+             
+              <br>
+
+              <input type="submit" class="button button-block button-caution btn-block" value="登录">
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+
+          
+
+
+    
+{% endblock %}

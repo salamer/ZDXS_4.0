@@ -1,0 +1,55 @@
+{% extends "blog_base.html" %}
+{% load markdown_deux_tags %}
+ {% block content %}
+
+
+ <div class="row bigger" style="background:#3D85A1">
+
+    <div class="container" >
+    {% for blog in blogs %}
+      <article class="pas text-left " >
+        <h2><a href="/blog/post/{{ blog.id }}" style="color:#5A5A5A">{{ blog.title|upper }}</a></h2>
+        <h1><small><span class="glyphicon glyphicon-user" aria-hidden="true"</span>作者:<a href="/user/{{ blog.editor.id }}">{{ blog.editor }}</a></small><span style="margin-left:50px;font-size:20px;"><span class="glyphicon  glyphicon-calendar" aria-hidden="true">更新于</span>{{ blog.data_time|timesince }} 以前</span></h1>
+        <br>
+        
+          {{ blog.summury | markdown:"STYLE" }}
+        
+        <a href="/blog/post/{{ blog.id }}"><button class="button button-primary button-rounded button-small"><span class="glyphicon glyphicon-leaf glyphicon-align-left" aria-hidden="true"></span>查看博客</button></a>
+        <span class="label label-warning"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" ></span>浏览:{{ blog.counts }}</span>
+      </article>
+     {% endfor %}  
+    </div>
+    <div class="container">
+      <ul class="pagination">
+      {% if blogs.has_previous %}
+        <li >
+          <a href="?page={{ blogs.previous_page_number }}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a href="" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      {% endif %}
+        <li class="active"><a href="#">{{ blogs.number }}</a></li>
+      {% if blogs.has_next %}
+        <li >
+          <a href="?page={{ blogs.next_page_number }}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a href="" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      {% endif %}
+      </ul>
+    </div>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,98 @@
+{% extends "home_base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div  style="background-color:#D4D2D2;padding-top:50px;padding-bottom:50px;">
+    <div class="container" style="margin:10px auto;border-radius:5px;background:white;padding:20px 0px;box-shadow:10px 10px 20px #A7A3A3;">
+      <div class="row">
+      <div class="col-md-12">
+      <div style="padding:20px;">
+      <h1 style="padding-bottom:15px;">扎堆学社报名申请表</h1>
+      <p class="lead alert alert-warning">在这里填写扎堆的报名表来报名申请扎堆学设的面试，直到截止日期前你都有机会修改你的报名表</p>
+      <p class="lead alert alert-warning">但是照片只有一次上传机会</p>
+      {% if form.avatar.errors %}
+      {% if avatar.exisited %}
+      <p class="alert alert-danger">
+        {% for error in form.avatar.errors %}
+          {{ error }}
+        {% endfor %}
+      </p>
+      {% endif %}
+      {% endif %}
+      {% for error in picform.avatar.errors %}
+          <p class="alert alert-danger">{{ error }}</p>
+        {% endfor %}
+      <form method="post" action="" enctype="multipart/form-data">
+        <table class="table table-striped">
+          <tr>
+            <td><p><strong>姓名:</strong></p></td>
+            <td>{{ careerform.name }}</td>
+            <td><p><strong>性别:</strong></p></td>
+            <td>{{ careerform.sex }}</td>
+          </tr>
+          <tr>
+            <td><p><strong>专业:</strong></p></td>
+            <td>{{ careerform.subject }}</td>
+            <td><p><strong>班级:</strong></p></td>
+            <td>{{ careerform.classname }}</td>
+          </tr>
+          <tr>
+            <td><p><strong>生日:</strong></p></td>
+            <td>{{ careerform.birthday }}</td>
+            <td><p><strong>民族:</strong></p></td>
+            <td>{{ careerform.race }}</td>
+          </tr>
+
+
+          
+          {% if not request.user.userprofile.has_avatar %}
+          <tr>
+            <td><p><strong>上传照片:</strong></p></td>
+            <td>{{ picform.avatar }}</td>
+          </tr>
+          {% endif %}
+          <tr>
+            <td><p><strong>手机号码:</strong></p></td>
+            <td colspan="3">{{ careerform.contact }}</td>
+          </tr>
+          <tr>
+            <td><p><strong>自我介绍:</strong></p></td>
+            <td colspan="3">{{ careerform.introduction }}</td>
+          </tr>
+          <tr>
+            <td><p><strong>对扎堆的想法:</strong></p></td>
+            <td colspan="3">{{ careerform.something }}</td>
+          </tr>
+          {% if form.team.errors %}
+          {% for error in form.team.errors %}
+          <tr>
+          <td colspan="4">
+            <p class="alert alert-danger">{{ error }}</p>
+          </td>
+          </tr>
+          {% endfor %}
+          {% endif %}
+          <tr>
+            <td><p><strong>希望加入的组</strong></p></td>
+            <td colspan="3">{{ careerform.team }}</td>
+            
+            
+          </tr>
+          <tr>
+           <td><p><strong>确认加入扎堆</strong></p></td>
+            <td colspan="3">
+            
+            {{ careerform.make_sure_to_join }}
+            
+            </td>
+          </tr>
+        </table>
+        <button class="button button-block button-rounded button-primary button-large btn-block">上传</button>
+        </form>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

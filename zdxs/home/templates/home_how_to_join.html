@@ -1,0 +1,58 @@
+{% extends "home_base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div style="padding-top:50px;padding-bottom:50px;background-color:#EEE">
+    <div class="container" style="margin:10px auto;border-radius:5px;background:white;padding:20px 0px;">
+      <div class="row">
+      <div class="col-md-12 text-left">
+      <div style="padding:20px; table-responsive">
+      <h1 class="alert alert-warning">#Q：如何加入扎堆呢？？？？？</h1>
+      <h1 class="alert alert-info">#A：其实非常简单哦！</h1>
+      <p class="lead">跟着我以下步骤:</p>
+      <h2>1.注册扎堆帐号</h2>
+      <hr>
+      <p class="lead">1.)点击页面导航栏右侧的注册链接（红线部分）</p>
+      <img src="{% static 'pic/how1.png' %}" class="img-responsive">
+      <hr>
+      <p class="lead">2.)首先先注册一个帐号，依次填上你的昵称（英文），邮箱，密码，确认密码</p>
+      <img src="{% static 'pic/how2.png' %}" class="img-responsive">
+      <hr>
+      <p class="lead">3.)接着登录</p>
+      <img src="{% static 'pic/how3.png' %}" class="img-responsive">
+      <hr>
+      <h2>2.申请报名扎堆</h2>
+      <hr>
+      <p class="lead">1.)点击你的用户名（红线部分）</p>
+      <img src="{% static 'pic/how4.png' %}" class="img-responsive">
+      <hr>
+      <p class="lead">2.)你进入了你的个人主页部分，点击“加入扎堆按钮”</p>
+      <img src="{% static 'pic/how5.png' %}" class="img-responsive">
+      <hr>
+      <p class="lead">3.)你会看到一个报名表，这个是你加入扎堆的报名表，</p>
+      <img src="{% static 'pic/how6.png' %}" class="img-responsive">
+      <p class="alert alert-danger">#注：第一次报名时按下最下面的“上传”按钮前其他都可以不写，但是要求你已经上传照片了的</p>
+      <p class="alert alert-danger">#注：照片要jpg，png格式且小于500m</p>
+      <hr>
+      <p class="lead">4.)点击“上传”按钮后你会回到主页，你可以再点击你的用户名链接，你会看到这个页面</p>
+      <img src="{% static 'pic/how7.png' %}" class="img-responsive">
+      <hr>
+      <p class="lead">5.)你可以再点击“加入扎堆”按钮</p>
+      <p class="lead">直到报名日期截止前你都可以修改你的报名信息</p>
+      <img src="{% static 'pic/how8.png' %}" class="img-responsive">
+      <p class="alert alert-danger">#注：报名扎堆这个选项一定要选择“加入”</p>
+      <img src="{% static 'pic/how9.png' %}" class="img-responsive">
+      <br>
+      <br>
+      <br>
+      <a href="/register" class="button btn-block button-rounded button-primary button-large "><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>还等什么快来报名吧！！！</a>
+
+      
+       
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

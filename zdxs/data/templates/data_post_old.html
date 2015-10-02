@@ -1,0 +1,56 @@
+{% extends "data_base.html" %}
+{% load markdown_deux_tags %}
+{% block content %}
+{{ form.non_field_errors }}
+<div class="row bigger" style="background:#3D85A1">
+    <div class="container" >
+      <div class="pas text-left " >
+      <div id="passages">
+        <h2>{{ post.title | upper }}</h2>
+        <h1><small>作者:<a href="#">{{ post.editor }}</a></small><span style="margin-left:50px;font-size:20px;">{{ post.data_time}}</span></h1>
+        <span class="label label-primary">{{ post.counts }} </span>
+        {% if user.is_authenticated %}
+        {% ifequal user.username post.editor %}
+        <a href="/data/edit/{{ post.id }}"><span class="label label-info">edit it!</span></a>
+        {% endifequal %}
+        {% endif %}
+        <p>{{ post.data | markdown:"STYLE" }} </p>
+      </div>
+      <div style="border-bottom:1px solid #384452"></div>
+      <div class="container">
+          <h2>comment:</h2>
+          <form class="" method="post" action="">
+          	{% csrf_token %}
+          	<p class="bg-danger">{{ form.comment.errors }}</p>
+          	<div class="container">
+          	<div class="form-group">
+          		<label for="{{ form.comment.id_for_label }}" class=" control-label">comment:</label>
+          		<div style="width:600px;" >
+          			{{ form.comment }}
+          		</div>
+          		
+          		
+          	</div>
+          	</div>
+          	<input type="submit" value="comment" align="center" class="col-md-offset-2 button button-glow button-rounded button-royal"/>
+          </form>
+          {% if user.is_authenticated %}
+          {% ifequal post.editor user.username %}
+          {% for c in comment %}
+          <div style="border-bottom:1px solid #384452"></div>
+          <div class="container">
+          	<p>from :{{ c.commentator }}</p>
+          	<p>{{ c.data_time }}</p>
+          	<p>{{ c.comment }}</p>
+          </div>
+          {% endfor %}
+          {% endifequal %}
+          {% endif %}
+      </div>
+
+
+      </div>
+       
+    </div>
+    </div>
+    {% endblock %}

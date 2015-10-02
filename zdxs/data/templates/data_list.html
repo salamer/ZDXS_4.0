@@ -1,0 +1,63 @@
+{% extends "data_base.html" %}
+{% load markdown_deux_tags %}
+{% block content %}
+{{ form.non_field_errors }}
+
+<div class="jumbotron" style="background-color:#54A7D5;margin-bottom:0px;">
+      <div class="container">
+        <h1 class="text-left">{{ category_name }}</h1>
+        <p class="text-left">这些资料出自扎堆学社社内的学霸同学们之手，知识是不可取价的，但我们希望免费分享这些我们的总结，以期来帮助那些总结混乱或者希望得到点拨的同学一起在书的海洋中，乘风破浪！</p>
+      </div>
+    </div>
+    <section class="data_list_sec row bigger">
+    <div class="container">
+    {% for p in post %}
+        <article style="margin-top:40px;margin-bottom:30px;text-align:left">
+        <div class="container article_container">
+            <a href="/data/post/{{ p.id }}" style="color:black"><h2 class="text-left">{{ p.title|upper }}</h2></a>
+        <h1 class="text-left"><small><span class="glyphicon glyphicon-user" aria-hidden="true"</span>作者:<a href="/user/{{ p.editor.id }}">{{ p.editor.username }}</a></small><span style="margin-left:50px;font-size:20px;"><span class="glyphicon  glyphicon-calendar" aria-hidden="true">更新于{{ p.data_time|timesince }}以前</span></h1>
+        <div class="container">
+          <p class="text-left">{{ p.summury | markdown:"STYLE" }}</p>
+        </div>
+        <br>
+        <br>
+        <a href="/data/post/{{ p.id }}"><button class="button button-primary button-rounded button-small"><span class="glyphicon glyphicon-leaf glyphicon-align-left" aria-hidden="true"></span>详细资料</button></a>
+        <span class="label label-warning"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" ></span>浏览{{ p.counts }}</span>
+        
+        </article>
+        
+        {% endfor %}  
+        </div>
+        <div class="container">
+      <ul class="pagination">
+      {% if post.has_previous %}
+        <li >
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a href="" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      {% endif %}
+        <li class="active"><a href="#">{{ post.number }}</a></li>
+      {% if post.has_next %}
+        <li >
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a href="" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      {% endif %}
+      </ul>
+    </div>
+    </section>
+ {% endblock %}

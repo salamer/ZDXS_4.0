@@ -1,0 +1,39 @@
+{% extends "data_base.html" %}
+{% block content %}
+{{ form.non_field_errors }}
+<div class="row" style="background:none repeat scroll 0% 0% #54BA8B;padding:40px 0px;">
+<div class="container" style="background:white;border-radius:5px;padding:30px 40px;margin-top:30px;">
+<h1 class="upper">更新你的资料</h1>
+<br>
+<br>
+<form class="form-horizontal" method="post" action="">
+	{% csrf_token %}
+	<p class="bg-danger">{{ form.title.errors }}</p>
+	<div class="form-group">
+		<label for="{{ form.title.id_for_label" class="col-md-1 control-label">主题:</label>
+		<div class="col-md-11">
+			{{ form.title }}
+		</div>
+	</div>
+	<p class="bg-danger">{{ form.data.errors }}</p>
+	<div class="form-group">
+		<label for="{{ form.body.id_for_label" class="col-md-1 control-label">资料:</label>
+		<div class="col-md-11">
+			{{ form.data }}
+		</div>
+	</div>
+	<p class="bg-danger">{{ form.summury.errors }}</p>
+	<div class="form-group">
+		<label for="{{ form.body.id_for_label" class="col-md-1 control-label">简要:</label>
+		<div class="col-md-11">
+			{{ form.summury }}
+		</div>
+	</div>
+	<br>
+	<br>
+	<input type="submit" value="更新" class="col-md-offset-2 button button-glow button-royal btn-block"/>
+</form>
+</div>
+</div>
+
+{% endblock %}

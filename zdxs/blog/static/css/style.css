@@ -1,0 +1,68 @@
+.bottonBigger{
+	padding: 10px 0px 20px;
+}
+#foo{
+	padding: 20px 0 0;
+	background-color: #333;
+}
+#spe{
+	padding: 18px 0 18px;
+	background-color: #FFF;
+	color: #2A2A2A;
+}
+#sec{
+	display: block;
+}
+
+#sheet{
+	padding: 30px 0 30px;
+}
+#sheet-pink{
+	background-color: #CCC2C2;
+}
+#sheet-grey{
+	background-color: #F5F5F5;
+}
+.bigger{
+	padding: 50px 0 30px;
+}
+.foo-col{
+	color: #BFC9D3;
+}
+.headword{
+	color: white;
+}
+.pas{
+	overflow: hidden;;
+	margin-bottom: 50px;
+	border-radius: 5px;
+	background: none repeat scroll 0% 0% #FFF;
+	box-shadow: 0px 10px 10px rgba(149, 77, 77, 0.7);
+	border: 50px solid #FFF;
+
+}
+#passage :after{
+	background-color: #606060;  
+    	bottom: 0;  
+    	content: "";  
+    	display: block;  
+    	left: 250px;  
+    	position: absolute;  
+    	top: 0;  
+    	width: 1px; 
+}
+.area{
+	background-repeat: no-repeat; 
+	background-position: center;
+	background-size: 100% 100%;
+	background-attachment: fixed;
+	background-size: cover;
+	background-image:url(../pic/back.jpg);
+}
+.bar{
+	width: 30px;
+	height: 2px;
+	border: medium none;
+	background:none repeat scroll 0% 0% #5A2929;
+	margin: 10px auto;
+}

@@ -1,0 +1,72 @@
+{% extends "data_base.html" %}
+{% load staticfiles %}
+{% block content %}
+{{ form.non_field_errors }}
+<div class="row" style="background:none repeat scroll 0% 0% #54BA8B;padding:40px 0px;">
+<div class="container" style="background:white;border-radius:5px;padding:30px 40px;margin-top:30px;">
+<h1 class="upper">现在，把你对这个科目的学习的总结写成资料分享一下吧</h1>
+<br>
+<br>
+<form class="form-horizontal" method="post" action="">
+	{% csrf_token %}
+	
+	{% for error in form.title.errors %}
+		
+		<div class="alert alert-danger" role="alert">{{ error }}</div>
+	{% endfor %}
+	<div class="form-group">
+		<label for="{{ form.title.id_for_label" class="col-md-1 control-label">主题:</label>
+		<div class="col-md-11">
+			{{ form.title }}
+		</div>
+	</div>
+	{% for error in form.data.errors %}
+		<div class="alert alert-danger" role="alert">{{ error }}</div>
+	{% endfor %}
+	<div class="form-group">
+		<label for="{{ form.data.id_for_label" class="col-md-1 control-label">资料:</label>
+		<div class="col-md-11">
+			{{ form.data }}
+		</div>
+	</div>
+	{% for error in form.summury.errors %}
+		<div class="alert alert-danger" role="alert">{{ error }}</div>
+	{% endfor %}
+	<div class="form-group">
+		<label for="{{ form.summury.id_for_label" class="col-md-1 control-label">简要:</label>
+		<div class="col-md-11">
+			{{ form.summury }}
+		</div>
+	</div>
+	
+	{% for error in form.category.errors %}
+		<div class="alert alert-danger" role="alert">{{ error }}</div>
+	{% endfor %}
+	<div class="form-group">
+	
+		<label for="{{ form.summury.id_for_label" class="col-md-1 control-label">选择简要:</label>
+		<div class="col-md-11">
+		{% for category in categorys %}
+		<a class="button button-primary button-rounded button-large form-btn" style="margin:10px 20px">{{ category.category }}</a>
+		
+		{% endfor %}
+		<a class="button button-primary button-rounded button-large form-add" style="margin:10px 20px">增加分类<span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+		</div>
+	
+	</div>
+	<div class="form-group" id="form-category" style="display:none">
+		<label for="{{ form.category.id_for_label" class="col-md-1 control-label">分类:</label>
+		<div class="col-md-11">
+			{{ form.category }}
+		</div>
+	</div>
+	<div class="alert alert-warning" role="alert" id="category_alert" style="display:none">注意！！分类只能设定一次，设定完成后不能修改，请确认后提交</div>
+	<br>
+	<br>
+	<input type="submit" value="update" class="col-md-offset-2 button button-glow button-royal btn-block"/>
+</form>
+</div>
+</div>
+<script type="text/javascript" src="{% static 'js/data_form.js' %}"></script>
+
+{% endblock %}

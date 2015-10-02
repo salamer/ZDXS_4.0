@@ -1,0 +1,46 @@
+{% extends "blog_base.html" %}
+{% block content %}
+{{ form.non_field_errors }}
+<div class="row" style="background:none repeat scroll 0% 0% #3D85A1;padding:40px 0px;">
+<div class="container" style="background:white;border-radius:5px;padding:30px 40px;margin-top:30px;">
+<h1 class="upper">给扎堆写一个简要博客记录下时间吧！</h1>
+<br>
+<form class="form-horizontal" method="post" action="">
+	{% csrf_token %}
+	
+	
+	{% for error in form.title.errors %}
+		
+		<div class="alert alert-danger" role="alert">{{ error }}</div>
+	{% endfor %}
+	<div class="form-group">
+		<label for="{{ form.title.id_for_label" class="col-md-1 control-label">主题:</label>
+		
+		<div class="col-md-11">
+			{{ form.title }}
+		</div>
+	</div>
+	{% for error in form.body.errors %}
+		<div class="alert alert-danger" role="alert">{{ error }}</div>
+	{% endfor %}
+	<div class="form-group">
+		<label for="{{ form.body.id_for_label" class="col-md-1 control-label">博客内容:</label>
+		<div class="col-md-11">
+			{{ form.body }}
+		</div>
+	</div>
+	{% for error in form.summury.errors %}
+		<div class="alert alert-danger" role="alert">{{ error }}</div>
+	{% endfor %}
+	<div class="form-group">
+		<label for="{{ form.body.id_for_label" class="col-md-1 control-label">简要:</label>
+		<div class="col-md-11">
+			{{ form.summury }}
+		</div>
+	</div>
+	<input type="submit" value="上传" class="button button-block button-royal btn-block"/>
+</form>
+</div>
+</div>
+
+{% endblock %}

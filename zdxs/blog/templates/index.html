@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+ {% block content %}
+
+ <div class="row bigger" style="background:#3D85A1">
+
+    <div class="container" >
+    {% for blog in blogs %}
+      <article class="pas text-left " >
+        <h2>{{ blog.title|upper }}</h2>
+        <h1><small>作者:<a href="#">{{ blog.editor }}</a></small><span style="margin-left:50px;font-size:20px;">{{ blog.data_time }}</span></h1>
+        <div class="container" style="height:170px;overflow:hidden">
+          {{ blog.body }}
+        </div>
+        <button class="button button-primary button-rounded button-small">more》</button>
+        <span class="label label-default">{{ blog.count }}</span>
+      </article>
+     {% endfor %}  
+    </div>
+    <div class="container">
+      <ul class="pagination">
+      {% if blogs.has_previous %}
+        <li >
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a href="?page={{ blogs.previous_page_number }}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      {% endif %}
+        <li class="active"><a href="#">{{ blogs.number }}</a></li>
+      {% if blogs.has_next %}
+        <li >
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a href="?page={{ blogs.next_page_number }}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      {% endif %}
+      </ul>
+    </div>
+
+    {% endblock %}

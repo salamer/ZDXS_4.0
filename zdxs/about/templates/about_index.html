@@ -1,0 +1,99 @@
+{% extends "about_base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="jumbotron" style="margin-bottom:0px;background-color:#189ED2;;">
+  <div class="container text-left">
+  <h2  style="color:white;font-size:60px;">關於我們</h2>
+  <h4 style="color:white">想知道关于这个网站的信息，请戳：<a href="/about/website" style="color:white"><strong>关于这个网站</strong></a></h4>
+  </div>
+</div>
+<section style="background:white;padding-top:40px;padding-bottom:50px;">
+    <div class="container marketing">
+      <div class="row">
+        <div class="col-md-12" style="background-image:url({% static 'pic/wave.jpg' %});color:white;background-size:cover">
+          <div class="container" style="padding:50px;">
+            <h2>学社简介</h2>
+            <h3>马太效应告诉我们，强者可以集聚资源使自己变得更强。</h3>
+            <h3>如果现有资源不能满足我们，那就去创造资源。</h3>
+            <p class="lead">资源来自于优秀的学生。他们有的学习成绩力拔头筹，有的学生工作独当一面，有的更是身怀绝技，卓尔不群。资源来自于四面八方的支持。有身为国家奖学金获得者的学长学姐为我们指引航向，有出色的老师和多位辅导员帮我们献计献策。资源更来自于优秀的组织建制。这个平台出身草根，组织自由，人人平等，没有过多的管制束缚，每次活动都确保让大家确有收获，不虚此行。</p>
+            <p class="lead">资源聚集起来后，我们能做的有很多很多。对内，我们是一个精英交流会，与强人为友，举办精英沙龙，共享书籍资料，组队参加各类竞赛，组队备战各种考试，分享经验。对外，我们是一个学生互助团体，我们提供学生辅导课，出课前还设有严格的“试讲-评课”体质。我们为大家提供复习资料，课内资料涉及到材料、化工等主要学院的几乎所有课程，将更多人拉出“挂科”的深渊；课外资料涉及领域广泛，总有一部分适合你。</p>
+            <p class="lead">这个组织在哪里？只要我们的人聚在一起，扎起堆来，你就能找到它。这就是“扎堆学社”，一个专注于学术的自由组织，一个出身草根却造就精英的组织，一个实实在在奉献学生的组织。不要问我们能走多远，敢问路在何方，路在脚下！</p>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+        <hr class="featurette-divider" style="border-color:#C38585"></hr>
+          <h2 class="featurette-heading">下设组别</h2>
+          <hr class="bar">
+        </div>
+        <hr class="featurette-divider" style="border-color:#C38585"></hr>
+        <div class="row featurette" style="padding:10px 5px;;" >
+          <div class="col-md-7" id="scheme_team">
+            <h2 class="featurette-heading" >策划组</h2>
+            <p class="lead">策划组是扎堆学社的中枢，首先是为扎堆学社的活动写出大致策划，以便活动有序开展。其次，策划组是沟通扎堆学社各组见的桥梁。当然，我们也是每一次扎堆聚餐。活动的策划组。</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" src="{% static 'pic/scheme.jpeg' %}">
+          </div>
+        </div>
+        <hr class="featurette-divider" style="border-color:#C38585"></hr>
+        <div class="row featurette" style="padding:10px 5px;;"  id="data_team">
+          
+          <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" src="{% static 'pic/scheme.jpeg' %}">
+          </div>
+          <div class="col-md-7">
+            <h2 class="featurette-heading">資料組</h2>
+            <p class="lead">资料组会不定期面向全校发放社内学霸成员整理的各科纸质资料，并在官网上附上电子版。学社内部还会定期举办各种组如数学角，物理角等学科角及沙龙活动</p>
+          </div>
+        </div>
+        <hr class="featurette-divider" style="border-color:#C38585"></hr>
+        <div class="row featurette" style="padding:10px 5px;;" id="publicize_team">
+          <div class="col-md-7">
+            <h2 class="featurette-heading" >宣傳組</h2>
+            <p class="lead">宣传组主要负责推广扎堆学社的活动和相关通知，制作学社的宣传海报、传单，增强扎堆学社在师生中的影响力。并维护学社的宣传平台，如微信平台、百度贴吧等。</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" src="{% static 'pic/scheme.jpeg' %}">
+          </div>
+        </div>
+        <hr class="featurette-divider" style="border-color:#C38585"></hr>
+        <div class="row featurette" style="padding:10px 5px;;" id="diplomacy_team">
+          
+          <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" src="{% static 'pic/scheme.jpeg' %}">
+          </div>
+          <div class="col-md-7">
+            <h2 class="featurette-heading" >外联组</h2>
+            <p class="lead">作为学社与外界沟通的桥梁，外联组主要负责与其他学生组织社团以及商家的联系。无论是校内组织的接洽，校外讲座的承办，还是一部分学社资金的筹集，都活跃着外联组员的身影。
+          </p>
+          </div>
+        </div>
+        <hr class="featurette-divider" style="border-color:#C38585"></hr>
+        <div class="row featurette" style="padding:10px 5px;;" id="teaching_team">
+          <div class="col-md-7">
+            <h2 class="featurette-heading" >授課組</h2>
+            <p class="lead">授课组秉承“人才不一定具备口才,但有口才的人必定是人才”的原则，致力于建立一个稳固的平台，以达到共同进步的目的。我们的工作内容主要是对内进行口才培训和组织交流学习，对外面向全校同学，进行课程辅导，经过系统的“试讲-评议”机制，高质量地分享自己的所得所知。对我们本身而言， 授课组是一个温馨有爱的大家庭，学长学姐们期待你们的加入哦!</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" src="{% static 'pic/scheme.jpeg' %}">
+          </div>
+        </div>
+        <hr class="featurette-divider" style="border-color:#C38585"></hr>
+        <div class="row featurette" style="padding:10px 5px;;" id="english_corner">
+          
+          <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" src="{% static 'pic/scheme.jpeg' %}">
+          </div>
+
+          <div class="col-md-7">
+            <h2 class="featurette-heading" >英语角</h2>
+            <p class="lead">英语角是扎堆学社目前唯一对社外同学开放的学术活动角，英语角以英语派对游戏为主要活动形式，活动过程中全英文交流。</p>
+          </div>
+        </div>
+      
+    </div>
+  </section>  
+
+  {% endblock %}

@@ -1,0 +1,116 @@
+{% load staticfiles %}
+{% load markdown_deux_tags %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Cover Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap-3.3.4-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/btn.css' %}">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/css.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-2.1.4.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/style.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+ <!--   <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body style="padding:51px 0px 0px;background:#FFF">
+  
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><strong>扎堆學社</strong></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="hovernav"><a href="/">主頁</a></li>
+            <li class ="active"><a href="/blog">Blog</a></li>
+            <li class ="hovernav"><a href="/data">資料</a></li>
+            <li class ="hovernav"><a href="#contact">關於我們</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" >
+            <li><a href="/register">註冊</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="#">hello {{ user.username }}</a></li>
+            {% if perms.blog.can_write %}
+            <li><a href="/blog/write">write</a></li>
+            {% endif %}
+            <li><a href="/logout">退出</a></li>
+            {% else %}
+            <li><a href="/login" style="color:#D08376">请登录</a></li>
+            {% endif %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="jumbotron" style="background-color:#428bca; color:#FFFFFF;margin-bottom:0px;">
+      <div class="container">
+        <h5 align="left">扎堆EVENT</h5>
+      </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+    
+    
+    
+    
+    <footer class="footer foo">
+    
+    <div class="container bigger" style="height:170px;backgroud:#384452;padding:60px 0 20px;margin-bottom:70px;">
+        <div class="row">
+              <div class="col-md-4 col-md-offset-1">
+                <h2 style="color: #BFC9D3;">聯繫我們</h2>
+                <ul style="color: #BFC9D3;">
+                  <li>xxx@163.com</li>
+                </ul>
+              </div>
+            
+              <div class="col-md-4 col-md-offset-1">
+                <h4 style="color: #BFC9D3;">扎堆學社是北京化工大學學生自發組織的學生互助團體，最終解釋權歸扎堆學社所有。扎堆學設，竭誠爲您服務。</h4>
+              </div>
+              
+            
+          
+      </div>
+    </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-2.1.4.js"></script>
+    <script src="/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<!--    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+-->
+  </body>
+</html>
+

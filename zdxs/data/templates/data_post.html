@@ -1,0 +1,107 @@
+{% extends "data_base.html" %}
+{% load markdown_deux_tags %}
+
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+{% block content %}
+{{ form.non_field_errors }}
+<div class="row bigger" style="background:#5F879E">
+    <div class="container" margin-top:40px;margin-bottom:30px;text-align:left>
+      <div class="pas text-left " >
+      <div id="passages">
+        <h1>{{ post.title | upper }}</h1>
+        <h4>
+        <span class="col-md-2"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>作者:<a href="/user/{{ post.editor.id }}">{{ post.editor.username }}</a></span>
+        <span class="col-md-10"><span class="glyphicon  glyphicon-calendar" aria-hidden="true">更新于{{ post.data_time|date:"F j, Y" }}</span>
+        </h4>
+        <br>
+        <br>
+        <h5><span class="label label-warning"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" ></span>浏览次数:{{ post.counts }}  </span>
+        {% if user.is_authenticated %}
+        {% ifequal user post.editor %}
+        <a href="/data/edit/{{ post.id }}"><span class="label label-info"> 修改</span></a>
+        {% endifequal %}
+        {% endif %}
+        </h5>
+        <br>
+        <br>
+        <br>
+        <p>{{ post.data | markdown:"STYLE" }} </p>
+      </div>
+      <br>      <br>
+      <br>
+      <div class="bshare-custom">
+      <a title="分享到" href="http://www.bShare.cn/" id="bshare-shareto" class="bshare-more">分享到</a>
+      <a title="分享到QQ空间" class="bshare-qzone">QQ空间</a>
+      <a title="分享到新浪微博" class="bshare-sinaminiblog">新浪微博</a>
+      <a title="分享到人人网" class="bshare-renren">人人网</a>
+      <a title="分享到腾讯微博" class="bshare-qqmb">腾讯微博</a>
+      <a title="分享到网易微博" class="bshare-neteasemb">网易微博</a>
+      <a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+      <span class="BSHARE_COUNT bshare-share-count">0</span>
+      </div>
+      
+      <br>
+      <br>
+      <br>
+      <div style="border-bottom:1px solid #384452"></div>
+      <div class="row" style="padding-top:30px;">
+          
+            <div class="alert alert-warning col-md-12" role="alert">&nbsp &nbsp &nbsp &nbsp<strong>注意</strong>：若你觉得这篇资料哪个地方不甚明白，或者有什么问题关于这一块，写下来告诉我们，我们会及时更新来相应你的需要</div>
+          
+          <div class="col-md-12">
+          <form class="" method="post" action="">
+          	{% csrf_token %}
+          	
+            {% for error in form.comment.errors %}
+            <p style="color:red">{{ error }}</p>
+            {% endfor %}
+          	<div class="row">
+          	<div class="form-group">
+          		<label for="{{ form.comment.id_for_label }}" class=" control-label col-md-1">你的问题或建议:</label>
+          		<div class="col-md-11">
+          			{{ form.comment }}
+          		</div>
+          		
+          		
+          	</div>
+          	</div>
+            <br>
+            <br>
+          	<input type="submit" value="提交" align="center" class="col-md-offset-2 button button-glow button-rounded button-royal btn-block"/>
+          </form>
+          <br>
+          <br>
+          <br>
+          </div>
+          {% if user.is_authenticated %}
+          
+          {% ifequal post.editor request.user %}
+          <div class="alert alert-info col-md-12">以下是来自他人的建议或者需要</div>
+          {% for c in comment %}
+         
+          <br>
+          <br>
+          <div class="container col-md-12" style="border-top:1px solid #DAC0C0;padding-top:15px;">
+          <div class="col-md-2">
+          	<p>来自 :<strong>{{ c.editor }}</strong></p>
+          </div>
+          <div class="col-md-10">
+          	<p>{{ c.data_time|timesince }}ago</p>
+          	<p>{{ c.comment }}</p>
+          </div>
+          </div>
+          {% endfor %}
+          {% endifequal %}
+          {% endif %}
+      </div>
+
+
+      </div>
+       
+    </div>
+    </div>
+	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+    {% endblock %}

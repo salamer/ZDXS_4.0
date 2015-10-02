@@ -1,0 +1,13 @@
+[uwsgi]
+ chdir=/home/aljun/zdxs/zdxs
+ module=zdxs.wsgi
+ home=/home/aljun/myproject/venv
+ socket = /home/aljun/zdxs/zdxs/zdxs.sock
+ chmod-socket=666
+ master=True
+ processes=2
+# pidfile=/home/aljun/zdxs/zdxs/zdxs-master.pid
+ vacuum=True
+ max-requests=5000
+ daemonize=/home/aljun/zdxs/zdxs/zdxs.log
+

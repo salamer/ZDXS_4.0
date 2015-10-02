@@ -1,0 +1,55 @@
+{% extends "home_base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div style="padding-top:50px;padding-bottom:50px;background-color:#EEE">
+    <div class="container" style="margin:10px auto;border-radius:5px;background:white;padding:20px 0px;">
+      <div class="row">
+      <div class="col-md-12">
+      <div style="padding:20px; table-responsive">
+      <h1 style="padding-bottom:20px;"><strong>以下是申请者</strong></h1>
+      
+      
+      
+        <table class="table  table-bordered table-striped">
+        {% for user_profile in user_profile %}
+       
+          <tr>
+           
+            <td><p><strong>id:</strong></p></td>
+            <td>{{ user_profile.id }} </td>
+            <td><p><strong>姓名:</strong></p></td>
+            <td><a href="/newman/{{ user_profile.id }}">{{ user_profile.name }} </a></td>
+            <td><p><strong>希望申请的组:</strong></p></td>
+            <td>{{ user_profile.team }}</td>
+             <td><p><strong>专业:</strong></p></td>
+            <td>{{ user_profile.subject }}</td>
+           
+
+<!--
+
+            <td><p><strong>classname</strong></p></td>
+            <td>{{ user_profile.classname }}</td>
+            <td><p><strong>birthday:</strong></p></td>
+            <td>{{ user_profile.race }}</td>
+            <td><p><strong>contact:</strong></p></td>
+            <td>{{ user_profile.introduction }}</td>
+            <td><p><strong>introduction:</strong></p></td>
+            <td>{{ user_profile.introduction }}</td>
+            <td><p><strong>something</strong></p></td>
+            <td>{{ user_profile.something }}</td>
+
+-->
+
+          </tr>
+          
+        {% endfor %}
+        </table>
+       
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

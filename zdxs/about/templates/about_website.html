@@ -1,0 +1,95 @@
+{% extends "about_base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="jumbotron" style="margin-bottom:0px;background-color:#189ED2;;">
+  <div class="container text-left">
+  <h2  style="color:white;font-size:60px;">关于这个网站</h2>
+  </div>
+</div>
+<section style="background:white;padding-top:40px;padding-bottom:50px;">
+    <div class="container marketing text-left">
+      <div class="row">
+        
+
+        <div class="col-md-12">
+        <hr class="featurette-divider" style="border-color:#C38585"></hr>
+          <h2 class="featurette-heading" style="text-align:center">关于这个网站:</h2>
+          <hr class="bar">
+        </div>
+        <hr class="featurette-divider" style="border-color:#C38585"></hr>
+        <div class="row featurette" style="padding:10px 5px;;">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">网站介绍</h2>
+            <p class="lead">有问题或者想加入我们联系：zdxsweb@163.com</p>
+            <p class="lead">关于这个网站，我是想把它做成现代大学生高校信息服务类社团的典范网站，现在算是verision2.0吧，大概前前后后写了有一个星期，这一个星期，我算是没什么帮手，所以前端后端都要一起做，非常疲累，好在有得学长帮助，能够借到宿舍，这边宿舍不断电，所以有时一敲代码，便是要敲到天亮，又是一段天亮以后说晚安的故事么，呵呵。我本是搞了一个学期的python后端，暑假只是翻看了bootstrap文档，写了写jquery效果，搞了好几天的angularjs而已，但很大的思维仍是后端思维，所以写起前端事件流的程序，感觉很累，倒是，后端python的orm人性化，省去了我很多时间，最后架在阿里云上面，阿里云也非常给力，开头15天免费，而且操作什么的，除了没有gui，其他的和我自己的ubuntu并无什么错误。起初是想在这个网站上倾泻我所有的最牛最溜最炫的技术，但后面，因为考虑到一个人维护，还是采取了稳妥的技术</p>
+            <p class="lead">此网站用到的技术有：</p>
+            <ul class="lead">
+              <li>django(后端逻辑)</li>
+              <li>bootstrap3(前端css，以及一些我自己写的css)</li>
+              <li>jquery9这个网站因为没什么时间了，没写太多的jquery效果)</li>
+              <li>mysql(数据库存储，别问我为什么用sql型数据库，我奏是稀饭！！)</li>
+              <li>nginx(与uwsgi做反响代理，来做服务器监听)</li>
+              <li>阿里云</li>
+            </ul>
+            <p class="lead">这个网站加载了第三方应用:</p>
+            <ul>
+            		<li>第三方的评论系统：多说</li>
+            		<li>加载了第三方储存应用：七牛</li>
+            		<li>加载了第三方分享系统：bdshare</li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" src="{% static 'pic/scheme.jpeg' %}">
+          </div>
+        </div>
+        <hr class="featurette-divider" style="border-color:#C38585"></hr>
+        <div class="row featurette" style="padding:10px 5px;;">
+          
+          <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" src="{% static 'pic/coder.jpg' %}">
+          </div>
+          <div class="col-md-7">
+            <h2 class="featurette-heading">程序员简介:</h2>
+            <p class="lead">webname:<strong>aljun</strong></p>
+            <p class="lead">有问题联系email : <strong>contactsalamer@163.com</strong></p>
+            <p class="lead">
+              一个本科应用化学即将大二的中二少年，阴差阳错误入web，喜欢python，喜欢django，喜欢flask，也喜欢ruby和rails，python是单纯，ruby是搞怪，django是清晰，rails是灵活。平常喜欢研究python的各种科学计算库和，python的algorithm。当然也喜欢javascript，jquery，(javascript作为网景公司想到屁股出汗却一下想出来的语言到现在github上面最热语言，mean方式开始大行其道，我虽然不是很喜欢nodejs那种让我感觉杂揉的程序，但是nodejs的异步让我倾羡，tornado当然是不能比的，除了闹残乎“抄袭”quora用他，我是不打算用他的)。最近还在看c++和java，因为是高中noip竞赛c语言类出生的缘故，改成使用c++来写算法题，理解面向对象式编程 
+            </p>
+            <p class="lead">正在学习日语，准备年底考JLPT，也算是掌握三种语言吧。也喜欢美式文学和日式文学，是个历史迷，经济地理也很喜欢,喜欢和各种高人探讨学习，喜欢头脑风暴.</p>
+            <p class="lead text-left">
+              熟练技术：
+
+            </p >
+            <ul class="lead" style="text-align:left;">
+              <li>python</li>
+              <li>django</li>
+              <li>flask</li>
+              <li>tornado</li>
+              <li>python的各种科学计算库(numpy,matplotlib,pandas)</li>
+              <li>jinja2(以及各种template)</li>
+              <li>sqlalchemy(python的orm)</li>
+              <li>javascript</li>
+              <li>jquery</li>
+              <li>angularjs</li>
+              <li>bootstrap</li>
+            </ul>
+            <p class="lead">不算熟练，但还是可以用的技术:</p>
+            <ul class="lead">
+              <li>ruby</li>
+              <li>rails</li>
+              <li>nodejs</li>
+              <li>scrapy</li>
+              <li>docker</li>
+              <li>uml</li>
+
+            </ul>
+          </div>
+        </div>
+        <hr class="featurette-divider" style="border-color:#C38585"></hr>
+        
+      
+    </div>
+  </section>  
+
+  {% endblock %}

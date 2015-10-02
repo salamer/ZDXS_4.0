@@ -1,0 +1,40 @@
+{% extends "home_base.html" %}
+{% block content %}
+{{ form.non_field_errors }}
+<div class="jumbotron" style="background-color:#428bca; color:#FFFFFF;margin-bottom:0px;">
+      <div class="container">
+        <h1 align="left">Login in zhadui !to become a better man!</h1>
+      </div>
+    </div>
+<div class="row" style="background:none repeat scroll 0% 0% #2B5F74;height:500px;">
+<div class="container" >
+<br>
+<br>
+<br>
+<form class="form-horizontal" method="post" action="">
+	
+	{% csrf_token %}
+	{% for error in errors %}
+	<div class="row">
+		<p class="bg-danger col-md-8">{{ error }}</p>
+	</div>
+	{% endfor %}
+	<p class="bg-danger">{{ form.email.errors }}</p>
+	<div class="form-group">
+		<label for="{{ form.email.id_for_label }}" class="col-md-2 control-label" style="color:white">your email:</label>
+		<div class="col-md-6">
+			{{ form.email }}
+		</div>
+	</div>
+	<p class="bg-danger">{{ form.password.errors }}</p>
+	<div class="form-group">
+		<label for="{{ form.password.id_for_label" class="col-md-2 control-label" style="color:white">your password:</label>
+		<div class="col-md-6">
+			{{ form.password }}
+		</div>
+	</div>
+	<input type="submit" value="login" class="col-md-offset-2 button button-glow button-rounded button-royal"/>
+</form>
+</div>
+</div>
+{% endblock %}

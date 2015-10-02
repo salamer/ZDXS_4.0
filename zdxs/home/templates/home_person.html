@@ -1,0 +1,59 @@
+{% extends "home_base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="jumbotron" style="background-color:#A042CA; color:#FFFFFF;margin-bottom:0px;">
+      <div class="container">
+        <h1 align="left">个人页面</h1>
+      </div>
+    </div>
+    <div class="row bigger" style="background:#C9B6DB;padding-bottom:40px;">
+    <div class="container" style="background-color:white;padding:80px 40px;">
+      <div class="col-md-4">
+        <div style="height:30px;"></div>
+        {% if the_user.userprofile.avatar %}
+        <img src="{{ MEDIA_URL }}{{ the_user.userprofile.avatar }}" style="height:300px;width:250px;border-radius:40px;">
+        {% else %}
+        <img src="{% static 'pic/avatar.jpg' %}" style="height:300px;width:250px;border-radius:40px;">
+        {% endif %}
+        <div></div>
+        <br>
+        {% ifequal the_user request.user %}
+        {% if the_user.userprfile.has_been_deal_with %}
+        <h3>HELLO <strong>{{ the_user.username|upper }}</strong></h3>
+        {% else %}
+        <a href="/career" class="btn btn-info">加入扎堆</a>
+        {% endif %}
+        {% endifequal %}
+      </div>
+      <div class="col-md-8 text-left">
+        <h3 style="border-bottom:2px solid grey"><span class="glyphicon glyphicon-king" aria-hidden="true" ></span> 个人信息</h3>
+        <h4 style="font-space:2px;"><span class="glyphicon glyphicon-user" aria-hidden="true" ></span> 姓名:<strong>{{ the_user.username }}</strong></h4>
+        <h4> <span class="glyphicon glyphicon-comment" aria-hidden="true" ></span> email:<strong>{{ the_user.email }}</strong></h4>
+        {% if blogs %}
+        
+        <h3 style="border-bottom:2px solid grey;padding-top:10px;"><span class="glyphicon glyphicon-send" aria-hidden="true" ></span> 写过的博客</h3>
+         {% for blog in blogs %}
+        <a href="/blog/post/{{ blog.id }}">
+        <div class="col-md-12">
+          <h2>{{ blog.title }}</h2>
+        </div>
+        </a>
+        {% endfor %}
+        {% endif %}
+        {% if datas %}
+      
+        <h3 style="border-bottom:2px solid grey;padding-top:10px;"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true" ></span> 写过的资料</h3>
+        {% for data in datas %}
+        <a href="/data/post/{{ data.id }}">
+        <div class="col-md-12">
+          <h2>{{ data.title }}</h2>
+        </div>
+        {% endfor %}
+        {% endif %}
+        </a>
+      </div>
+    </div>
+    </div>
+
+{% endblock %}

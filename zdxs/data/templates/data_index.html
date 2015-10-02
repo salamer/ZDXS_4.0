@@ -1,0 +1,92 @@
+{% extends "data_base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+   <div class="jumbotron" style="background-image:url({% static 'pic/back1.jpg' %});backgound-size:cover;color:white;margin-bottom:0px">
+      <div class="container">
+        <h1 class="text-left">扎堆资料区</h1>
+        <p class="text-left">这些资料出自扎堆学社社内的学霸同学们之手，知识是不可取价的，但我们希望免费分享这些我们的总结，以期来帮助那些总结混乱或者希望得到点拨的同学一起在书的海洋中，乘风破浪！</p>
+      </div>
+    </div>
+
+    <section class="spe" style="padding:18px 0px 18px;background:#F2E4E4;color:#B46969">
+    <a name="introduction"></a>
+      <div class="container">
+        <div class="spe">
+        <strong>肆虐学习吧！</strong>
+        </div>
+      </div>
+      </a>
+    </section>
+
+
+    <section style="background-color:white;">
+      <div class="container" style="padding:70px 30px;">
+        <div class="row" >
+          <div class="col-md-6">
+            <div style="background-image:url({% static 'pic/bookboat.jpg' %});height:270px;background-size:cover"></div>
+          </div>
+          <div class="col-md-6">
+            <h2 class="text-info">这些资料出自扎堆学社社内的学霸同学们之手，知识是不可取价的，但我们希望免费分享这些我们的总结，以期来帮助那些总结混乱或者希望得到点拨的同学,一起在书的海洋中，乘风破浪！</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background-color:#E7E4E4">
+    <br>
+    <br>
+      <h1>资料分类</h1>
+      <hr class="bar">
+      <br>
+      <br>
+      <div class="container" style="padding-bottom:130px;">
+        <div class="row" style="padding-top:30px;">
+        <div class="col-md-12">
+          {% for tag in tags %}
+          <div class="col-md-12" id="{{ tag }}">
+          <h2 class="text-left" style="padding-left:50px;" >{{ tag }}</h2>
+          
+          <hr>
+          {% for category in tag.category_set.all %}
+          <a href="/data/category?category={{ category.category }}">
+            <div class="col-md-4" style="padding-bottom:20px;">
+              <img src="{% static 'pic/math.jpg' %}" class="data_img">
+              <h2 >{{ category.category }}</h2>
+            </div>
+          </a>
+          {% endfor %}
+          </div>
+
+          {% endfor %}
+        </div>
+
+       </div>
+
+      </div>
+    </section>
+    <script type="text/javascript">
+
+  $(document).ready(function(){
+    $(".the_tag").click(function(){
+      point=$(this).text();
+      point="#"+point;
+//      alert(point);
+      height=$(point).offset().top;
+      alert(height);
+      body=$("body");
+      height=body.scrollHeight;
+      alert(height);
+      alert($(window).scrollY);
+      window=$(window);
+      height=window.scrollY;
+       $(window).animate({scrollY:1000});
+
+    });
+  
+  });
+</script>
+    
+    
+    
+ {% endblock %}

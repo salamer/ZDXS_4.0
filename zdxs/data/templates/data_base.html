@@ -1,0 +1,111 @@
+{% load staticfiles %}
+{% load markdown_deux_tags %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="{% static 'zdxs_icon.ico' %}">
+
+    <title>{% block title %}{% endblock %}扎堆学社_资料</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap-3.3.4-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/btn.css' %}">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/css.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-2.1.4.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/style.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+ <!--   <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body style="padding:51px 0px 0px;background:#FFF">
+  
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><strong>扎堆學社</strong></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="hovernav"><a href="/">主頁</a></li>
+            <li class ="hovernav"><a href="/blog">Blog</a></li>
+            <li class ="active"><a href="/data">資料</a></li>
+            <li class ="hovernav"><a href="/about">關於我們</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" >
+          {% if perms.data.can_write %}
+            <li><a href="/data/write"><span class="glyphicon glyphicon-font" aria-hidden="true"></span>写资料</a></li>
+            {% endif %}
+            <li><a href="/register"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span>註冊</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="/user/{{ user.id }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>{{ user.username|upper }}</a></li>
+            <li><a href="/logout"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>退出</a></li>
+            {% else %}
+            <li><a href="/login" style="color:#D08376"><span class="glyphicon glyphicon-queen" aria-hidden="true"></span>请登录</a></li>
+            {% endif %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    
+    {% block content %}
+    {% endblock %}
+    
+    
+    
+    
+     <footer class="footer foo">
+    
+    <div class="container bigger" style="height:170px;backgroud:#384452;padding:60px 0 20px;margin-bottom:70px;">
+        <div class="row">
+               <div class="col-md-4 ">
+                <h4 style="color: #BFC9D3;">扎堆學社是北京化工大學學生自發組織的學生互助團體，最終解釋權歸扎堆學社所有。扎堆學設，竭誠爲您服務。</h4>
+              </div>
+              <div class=" col-md-offset-1 col-md-3">
+                <h3 style="color: #BFC9D3;padding-left:10px;" class="text-left">聯繫我們</h3>
+                <ul style="color: #BFC9D3;font-size:18px;" class="text-left">
+                  
+                  <li><a href="">xxx@163.com</a></li>
+                  <li><a href="">WECHAT:XXXXXX</a></li>
+                  <li><a href="">renren:XXXXX</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3" >
+                <img src="{% static 'pic/zhadui_icon.jpg' %}">
+              </div>
+            
+              
+              
+            
+          
+      </div>
+    </div>
+    </footer>
+
+    
+  </body>
+</html>
