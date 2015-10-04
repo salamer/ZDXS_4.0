@@ -20,15 +20,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7e+@#v-$&3!0@20gzo=3-r@eu2(zxz5*+tjyp13+v&puuhj1l5'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-DUOSHUO_SECRET='cfbda1cc4725b0982a065921bc4c8f28'
-DUOSHUO_SHORT_NAME='aljun'
+DUOSHUO_SECRET=''
+DUOSHUO_SHORT_NAME=''
 
 
 # Application definition
@@ -126,10 +126,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    '/home/aljun/zdxs/zdxs/static/',
+    '',
 ]
 
-MEDIA_ROOT='/home/aljun/zdxs/zdxs'
+MEDIA_ROOT=''
 MEDIA_URL = '/media/'
 
 
