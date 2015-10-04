@@ -96,8 +96,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'zdxs',
-        'USER':'root', 
-        'PASSWORD':'960219', 
+        'USER':'', 
+        'PASSWORD':'', 
         'HOST':'', 
         'PORT':'',
         
