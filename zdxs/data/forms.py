@@ -29,6 +29,13 @@ class DataForm(forms.Form):
 		if lgt<15:
 			raise forms.ValidationError("资料必须要超过15个字符")
 		return body
+	
+	def cleaned_categoy(self):
+		category=self.cleaned_data['category']
+		if " " in category:
+			raise forms>ValidationError("分类里面不能有空格哦")
+		return category
+		
 
 class DataCommentForm(forms.Form):
 	comment=forms.CharField(label="comment",
