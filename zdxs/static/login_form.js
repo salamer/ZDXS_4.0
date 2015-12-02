@@ -1,0 +1,25 @@
+
+/**
+$(document).ready(function(){
+	password=$("#id_password").val();
+	if(password!="密码")
+	{
+		$("#id_password").attr("type","password");
+	};
+	$("#id_password").focus(function(){
+		$("#id_password").attr("type","password");
+	});
+	$("input").focus(function(){
+		$(this).val("");
+		$(this).css("color","#000000");
+		$("#submit").val("登录");
+		$("#submit").css("color","#FFFFFF");
+	});
+	$("#submit").click(function(){
+		email=$("#id_email").val();
+		if(email=="注册邮箱"||email=="")
+		{
+			$("#warning").text("请填写邮箱");
+		};
+	})
+})

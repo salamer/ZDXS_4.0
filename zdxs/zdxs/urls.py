@@ -37,6 +37,8 @@ urlpatterns = [
     url(r'^career/$','home.views.career',name='career'),
     url(r'^howtojoin/$','home.views.howtojoin',name='howtojoin'),
 
+    url(r'^picchange/$','home.views.picchange',name='changeavatar'),
+
     url(r'^logout/$','home.views.logout',name='logout'),
     url(r'^data/',include('data.urls')),
     url(r'^blog/',include('blog.urls')),
