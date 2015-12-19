@@ -411,7 +411,7 @@ def my_404_view(request):
 
 #    return render(request,"home_career.html",{"form":form,"avatar_existed":avatar_existed})
 
-@permission_required("can_check_the_table",login_url='/')
+@permission_required("home.can_check_the_table",login_url='/')
 def join_show(request):
     try:
         user_profile=UserProfile.objects.filter(make_sure_to_join='1').filter(has_been_deal_with=False).order_by("team");
@@ -501,7 +501,7 @@ def career(request):
         
 
 @login_required(login_url='/login')
-@permission_required("can_check_the_table",login_url='/')
+@permission_required("home.can_check_the_table",login_url='/')
 def  NewManShow(request,id):
     try:
         user_profile=UserProfile.objects.get(id=id)
