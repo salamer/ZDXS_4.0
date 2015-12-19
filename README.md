@@ -17,3 +17,9 @@
 [website](http://123.57.18.201:8002)
 
 求轻喷，求建议
+
+现在已经正式上线，版本：version5.0
+
+地址：
+
+[zhaduixueshe.com](http://zhaduixueshe.com)
